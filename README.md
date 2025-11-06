@@ -4,11 +4,15 @@ A **local-first, retrieval-augmented research assistant** that transforms your d
 
 Ask questions. Get structured summaries. See the evidence. All running on your machine.
 
-![DataSplice UI](https://raw.githubusercontent.com/vineethvictor17/DataSplice/main/images/app-screenshot-1.png)
-*Query interface with confidence scoring and real-time corpus stats*
+<p align="center">
+  <img src="https://raw.githubusercontent.com/vineethvictor17/DataSplice/main/images/app-screenshot-1.png" alt="DataSplice UI" width="100%"/>
+</p>
+<p align="center"><em>Query interface with confidence scoring and real-time corpus stats</em></p>
 
-![Query Results](https://raw.githubusercontent.com/vineethvictor17/DataSplice/main/images/app-screenshot-2.png)
-*Structured summaries with subtopics, bullet points, and full citation transparency*
+<p align="center">
+  <img src="https://raw.githubusercontent.com/vineethvictor17/DataSplice/main/images/app-screenshot-2.png" alt="Query Results" width="100%"/>
+</p>
+<p align="center"><em>Structured summaries with subtopics, bullet points, and full citation transparency</em></p>
 
 ---
 
