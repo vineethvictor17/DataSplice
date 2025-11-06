@@ -218,24 +218,6 @@ DataSplice/
 
 ---
 
-## 🧪 Testing
-
-We include several test scripts to validate the pipeline:
-
-```bash
-# Test individual components
-python test_extraction.py       # PDF parsing
-python test_chunking.py         # Text splitting
-python test_embeddings.py       # OpenAI embedding generation
-python test_vector_store.py     # ChromaDB operations
-
-# Test end-to-end pipelines
-python test_full_pipeline.py    # Ingestion pipeline
-python test_query_pipeline.py   # Query pipeline
-```
-
----
-
 ## ⚙️ Configuration
 
 Key environment variables in `.env`:
@@ -276,97 +258,6 @@ Key environment variables in `.env`:
 * **Quality**: Sufficient for structured summarization tasks
 * **JSON mode**: Reliable structured output with schema validation
 
----
-
-## 🔒 Privacy & Security
-
-* ✅ **Local-first**: All documents stored in `./data` on your machine
-* ✅ **No cloud storage**: No external databases or file hosting
-* ⚠️ **OpenAI API calls**: Text sent to OpenAI for embeddings + LLM (subject to [OpenAI's privacy policy](https://openai.com/policies/privacy-policy))
-* ✅ **No telemetry**: No tracking or analytics
-* ✅ **Single-user**: No authentication or multi-tenancy concerns
-
-**Note**: If you need enterprise-grade data privacy, consider using local embedding models (e.g., `sentence-transformers`) and local LLMs (e.g., Ollama with Llama 3).
-
----
-
-## 🐛 Troubleshooting
-
-### Backend won't start
-
-**Issue**: `ModuleNotFoundError` or `ImportError`
-
-**Fix**:
-```bash
-# Ensure virtual environment is activated
-source venv/bin/activate
-
-# Reinstall dependencies
-pip install -r backend/requirements.txt
-
-# Check Python version
-python --version  # Should be 3.9+
-```
-
-### PyMuPDF installation issues
-
-**Issue**: `ModuleNotFoundError: No module named 'tools'` from `fitz`
-
-**Fix**:
-```bash
-pip uninstall PyMuPDF PyMuPDFb -y
-pip install PyMuPDF==1.23.8 PyMuPDFb==1.23.7
-```
-
-### OpenAI API errors
-
-**Issue**: `Invalid API key` or `proxies argument` error
-
-**Fix**:
-1. Verify `.env` has correct `OPENAI_API_KEY`
-2. Ensure `openai>=1.12.0` (check with `pip show openai`)
-3. Restart backend after env changes
-
-### Frontend connection refused
-
-**Issue**: `Connection refused at http://localhost:8000`
-
-**Fix**:
-1. Verify backend is running: `curl http://localhost:8000/health`
-2. Check backend logs for errors
-3. Ensure `BACKEND_URL` in `.env` matches backend address
-
-### Corpus stats not updating
-
-**Issue**: Sidebar shows 0 documents after ingestion
-
-**Fix**:
-1. Click the 🔄 **Refresh Stats** button
-2. Check backend logs for ingestion errors
-3. Verify ChromaDB folder exists: `ls data/vector_db/`
-
-### Low confidence scores
-
-**Issue**: All queries return "Low" confidence
-
-**Fix**:
-* **Ingest more documents**: Scores improve with corpus size
-* **Check relevance**: Ensure documents actually cover the query topic
-* **Try specific queries**: Broad questions yield lower confidence
-
-For more detailed troubleshooting, see [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
-
----
-
-## 📚 Documentation
-
-* **[SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md)**: Deep dive into codebase, data flow, and LLM design
-* **[INTERVIEW_CHEATSHEET.md](INTERVIEW_CHEATSHEET.md)**: How to present this project in AI engineer interviews
-* **[GETTING_STARTED.md](GETTING_STARTED.md)**: Step-by-step setup guide
-* **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)**: Common issues and solutions
-
----
-
 ## 🎯 Use Cases
 
 * **Academic research**: Summarize literature across multiple papers
@@ -395,25 +286,6 @@ For more detailed troubleshooting, see [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
 * [ ] Document versioning and updates
 * [ ] Multi-language support
 * [ ] Image/table extraction from PDFs
-
----
-
-## 🤝 Contributing
-
-Contributions welcome! To contribute:
-
-1. **Fork** the repository
-2. **Create** a feature branch: `git checkout -b feature/amazing-feature`
-3. **Commit** your changes: `git commit -m 'Add amazing feature'`
-4. **Push** to the branch: `git push origin feature/amazing-feature`
-5. **Open** a Pull Request
-
-Please ensure:
-* Code follows PEP 8 style guidelines
-* New features include tests
-* Documentation is updated
-
----
 
 ## 📜 License
 
